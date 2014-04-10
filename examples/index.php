@@ -46,7 +46,8 @@
                  array() : str_split(trim($matches[3]));
 
     return array($sub_expr, $modifiers);
-}', 'iphp'); 
+}
+', 'iphp'); 
 
 
 hyperlight('CREATE TABLE stat."group"
@@ -62,6 +63,37 @@ hyperlight('CREATE TABLE stat."group"
   USING INDEX TABLESPACE pg_default
   /* some comment here */
 )', 'sql');
+
+
+hyperlight('
+#include<iostream.h>
+#include<conio.h>
+void main()                         //Start of main
+{
+    clrscr();
+    int i=1, u=1, sum=0;
+    while(i<=500) {                 // start of first loop.
+        while(u<=500) {             //start of second loop.
+            if(u<i) {
+                if(i%u==0 ) {
+                    sum=sum+u;
+                }
+            }                       //End of if statement
+            u++;
+        }                           //End of second loop
+    
+        if(sum==i) {
+            cout<<i<<" is a perfect number."<<"\n";
+        }
+    
+        i++;
+        u=1;  sum=0;
+    }                               //End of First loop
+    getch();
+}                                   //End of main
+
+', 'cpp');
+
  ?>
             </div>
         </div>

@@ -944,7 +944,7 @@ function hyperlight($code, $lang, $tag = 'pre', array $attributes = array()) {
 
     $hl = new Hyperlight($lang);
     echo "<$tag class=\"$class\"$attr>";
-    $hl->renderAndPrint(trim($code));
+    $hl->renderAndPrint(trim($code) . "\n"); // add line feed to end of code
     echo "</$tag>";
 }
 
