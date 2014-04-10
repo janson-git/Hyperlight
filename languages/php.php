@@ -35,6 +35,15 @@ class PhpLanguage extends HyperLanguage {
             'html' => array()
         ));
 
+        $ex = get_loaded_extensions(false);
+		$funcs = [];
+		foreach ($ex as $extensionName) {
+			if ($list = get_extension_funcs($extensionName)) {
+				$funcs = array_merge($funcs, $list);
+			}
+		}
+
+
         $this->addRules(array(
             'php' => new Rule('/<\?php/', '/\?>/'),
             'html' => new Rule('/(?=.)/', '/(?=<\?php)/'),
@@ -45,11 +54,11 @@ class PhpLanguage extends HyperLanguage {
             'identifier' => Rule::C_IDENTIFIER,
             'variable' => new Rule('/\$/', '//'),
             'keyword' => array(
-                array('break', 'case', 'class', 'const', 'continue', 'declare', 'default', 'do', 'else', 'elseif', 'enddeclare', 'endfor', 'endforeach', 'endif', 'endswitch', 'endwhile', 'extends', 'for', 'foreach', 'function', 'global', 'if', 'return', 'static', 'switch', 'use', 'var', 'while', 'final', 'interface', 'implements', 'public', 'private', 'protected', 'abstract', 'try', 'catch', 'throw', 'final', 'namespace'),
+                array('array','break', 'case', 'class', 'const', 'continue', 'declare', 'default', 'do', 'else', 'elseif', 'enddeclare', 'endfor', 'endforeach', 'endif', 'endswitch', 'endwhile', 'extends', 'for', 'foreach', 'function', 'global', 'if', 'return', 'static', 'switch', 'use', 'var', 'while', 'final', 'interface', 'implements', 'public', 'private', 'protected', 'abstract', 'try', 'catch', 'throw', 'final', 'namespace'),
                 'type' => array('exception', 'int'),
                 'literal' => array('false', 'null', 'true', 'this'),
                 'operator' => array('and', 'as', 'or', 'xor', 'new', 'instanceof', 'clone'),
-                'builtin' => array('array', 'die', 'echo', 'empty', 'eval', 'exit', 'include', 'include_once', 'isset', 'list', 'print', 'require', 'require_once', 'unset')
+                'builtin' => $funcs, //array('array', 'die', 'echo', 'empty', 'eval', 'exit', 'include', 'include_once', 'isset', 'list', 'print', 'require', 'require_once', 'unset')
             ),
         ));
 
