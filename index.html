@@ -1,0 +1,91 @@
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>‹? Hyperlight ?› Examples</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+        <script type="text/javascript" src="examples/theme_switcher.js"></script>
+        <link rel="stylesheet" type="text/css" href="colors/zenburn.css" id="theme"/>
+    </head>
+
+    <body>
+        <div id="head">
+            <div class="text">
+                <h1>Examples</h1>
+            </div>
+        </div>
+        <div id="content">
+            <div id="swoosh"></div>
+            <div class="text">
+                <ul id="switch-buttons">
+                    <li><a href="" class="active" id="theme-zenburn">Zenburn</a></li>
+                    <li><a href="" id="theme-vibrant-ink">Vibrant Ink</a></li>
+                    <li><a href="" id="symfony2">Symfony2</a></li>
+                </ul>
+
+                <pre class="source-code iphp"><span class="keyword">function</span> <span class="identifier">preg_strip</span>(<span class="tag">$<span class="identifier">expression</span></span>) {
+    <span class="tag">$<span class="identifier">regex</span></span> = <span class="string">'/^(.)(.*)\\1([imsxeADSUXJu]*)$/s'</span>;
+    <span class="keyword">if</span> (<span class="keyword builtin">preg_match</span>(<span class="tag">$<span class="identifier">regex</span></span>, <span class="tag">$<span class="identifier">expression</span></span>, <span class="tag">$<span class="identifier">matches</span></span>) !== <span class="number">1</span>)
+        <span class="keyword">return</span> <span class="keyword literal">false</span>;
+
+    <span class="tag">$<span class="identifier">delim</span></span> = <span class="tag">$<span class="identifier">matches</span></span>[<span class="number">1</span>];
+    <span class="tag">$<span class="identifier">sub_expr</span></span> = <span class="tag">$<span class="identifier">matches</span></span>[<span class="number">2</span>];
+    <span class="keyword">if</span> (<span class="tag">$<span class="identifier">delim</span></span> !== <span class="string">'/'</span>) {
+        <span class="comment">// Replace occurrences by the escaped delimiter by its unescaped
+</span>        <span class="comment">// version and escape new delimiter.
+</span>        <span class="tag">$<span class="identifier">sub_expr</span></span> = <span class="keyword builtin">str_replace</span>(<span class="string">"\\$delim"</span>, <span class="tag">$<span class="identifier">delim</span></span>, <span class="tag">$<span class="identifier">sub_expr</span></span>);
+        <span class="tag">$<span class="identifier">sub_expr</span></span> = <span class="keyword builtin">str_replace</span>(<span class="string">'/'</span>, <span class="string">'\\/'</span>, <span class="tag">$<span class="identifier">sub_expr</span></span>);
+    }
+    <span class="tag">$<span class="identifier">modifiers</span></span> = <span class="tag">$<span class="identifier">matches</span></span>[<span class="number">3</span>] === <span class="string">''</span> ?
+                 <span class="keyword">array</span>() : <span class="keyword builtin">str_split</span>(<span class="keyword builtin">trim</span>(<span class="tag">$<span class="identifier">matches</span></span>[<span class="number">3</span>]));
+
+    <span class="keyword">return</span> <span class="keyword">array</span>(<span class="tag">$<span class="identifier">sub_expr</span></span>, <span class="tag">$<span class="identifier">modifiers</span></span>);
+}
+</pre><pre class="source-code sql"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="identifier">stat</span>.<span class="identifier">"group</span>"
+(
+  <span class="identifier">id</span> <span class="keyword type">bigserial</span> <span class="keyword ">NOT</span> <span class="keyword type">NULL</span>,
+  <span class="identifier">flag_valid</span> <span class="keyword type">boolean</span> <span class="keyword ">NOT</span> <span class="keyword type">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword literal">true</span>,
+  <span class="identifier">group_id</span> <span class="keyword type">bigint</span> <span class="keyword ">NOT</span> <span class="keyword type">NULL</span>,
+  <span class="identifier">"date</span>" <span class="keyword type">date</span> <span class="keyword ">NOT</span> <span class="keyword type">NULL</span>,
+  <span class="identifier">member_list</span> <span class="keyword type">bigint</span>[] <span class="keyword ">NOT</span> <span class="keyword type">NULL</span>, <span class="comment">-- comment here</span>
+  <span class="keyword">CONSTRAINT</span> <span class="identifier">group_pkey</span> <span class="keyword">PRIMARY KEY</span> (<span class="identifier">id</span>)
+  <span class="keyword">USING</span> <span class="keyword">INDEX</span> <span class="keyword">TABLESPACE</span> <span class="identifier">pg_default</span>,
+  <span class="keyword">CONSTRAINT</span> <span class="identifier">group_group_id_date_key</span> <span class="keyword">UNIQUE</span> (<span class="identifier">group_id</span>, <span class="keyword type">date</span>)
+  <span class="keyword">USING</span> <span class="keyword">INDEX</span> <span class="keyword">TABLESPACE</span> <span class="identifier">pg_default</span>
+  <span class="comment doc">/* some comment here */</span>
+)
+</pre><pre class="source-code cpp"><span class="preprocessor">#include<span class="tag">&lt;iostream.h&gt;</span>
+</span><span class="preprocessor">#include<span class="tag">&lt;conio.h&gt;</span>
+</span><span class="keyword type">void</span> <span class="identifier">main</span>()                         <span class="comment">//Start of main
+</span>{
+    <span class="identifier">clrscr</span>();
+    <span class="keyword type">int</span> <span class="identifier">i</span>=<span class="number">1</span>, <span class="identifier">u</span>=<span class="number">1</span>, <span class="identifier">sum</span>=<span class="number">0</span>;
+    <span class="keyword">while</span>(<span class="identifier">i</span>&lt;=<span class="number">500</span>) {                 <span class="comment">// start of first loop.
+</span>        <span class="keyword">while</span>(<span class="identifier">u</span>&lt;=<span class="number">500</span>) {             <span class="comment">//start of second loop.
+</span>            <span class="keyword">if</span>(<span class="identifier">u</span>&lt;<span class="identifier">i</span>) {
+                <span class="keyword">if</span>(<span class="identifier">i</span>%<span class="identifier">u</span>==<span class="number">0</span> ) {
+                    <span class="identifier">sum</span>=<span class="identifier">sum</span>+<span class="identifier">u</span>;
+                }
+            }                       <span class="comment">//End of if statement
+</span>            <span class="identifier">u</span>++;
+        }                           <span class="comment">//End of second loop
+</span>    
+        <span class="keyword">if</span>(<span class="identifier">sum</span>==<span class="identifier">i</span>) {
+            <span class="identifier">cout</span>&lt;&lt;<span class="identifier">i</span>&lt;&lt;<span class="string">" is a perfect number."</span>&lt;&lt;<span class="string">"\n"</span>;
+        }
+    
+        <span class="identifier">i</span>++;
+        <span class="identifier">u</span>=<span class="number">1</span>;  <span class="identifier">sum</span>=<span class="number">0</span>;
+    }                               <span class="comment">//End of First loop
+</span>    <span class="identifier">getch</span>();
+}                                   <span class="comment">//End of main
+</span></pre>            </div>
+        </div>
+    </body>
+</html>
+<!-- vim:ft=html
+-->
