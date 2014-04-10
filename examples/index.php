@@ -25,7 +25,7 @@
                 <ul id="switch-buttons">
                     <li><a href="" class="active" id="theme-zenburn">Zenburn</a></li>
                     <li><a href="" id="theme-vibrant-ink">Vibrant Ink</a></li>
-                    <li><a href="" id="z">Z</a></li>
+                    <li><a href="" id="symfony2">Symfony2</a></li>
                 </ul>
 
                 <?php hyperlight(
