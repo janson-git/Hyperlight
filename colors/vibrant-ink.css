@@ -10,6 +10,7 @@
 .source-code {
     background: black;
     color: white;
+	overflow: auto;
 }
 
 .source-code .keyword { color: #F60; font-weight: bold; }

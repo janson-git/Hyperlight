@@ -9,6 +9,7 @@
 .source-code {
     background: #3F3F3F;
     color: #DCDCCC;
+	overflow: auto;
 }
 
 .source-code .comment {

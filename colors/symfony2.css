@@ -3,6 +3,7 @@
     color: white;
 	font-family: DejaVu Sans Mono,Consolas,Courier New;
 	line-height: 1.4em;
+	overflow: auto;
 }
 
 .source-code .keyword { color: #FF8400; font-weight: bold; }
