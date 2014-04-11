@@ -1,7 +1,4 @@
 <?php
-
-require_once 'autoloader.php';
-
 /*
  * Copyright 2008 Konrad Rudolph
  * All rights reserved.
@@ -50,8 +47,9 @@ require_once 'autoloader.php';
  * @package hyperlight
  */
 
-/** @ignore */
-require_once('preg_helper.php');
+
+require_once 'autoloader.php';
+require_once('lib/preg_helper.php');
 
 if (!function_exists('array_peek')) {
     /**
