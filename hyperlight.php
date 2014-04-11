@@ -62,32 +62,3 @@ if (!function_exists('array_peek')) {
         return $cnt === 0 ? null : $array[$cnt - 1];
     }
 }
-
-/**
- * @internal
- * For internal debugging purposes.
- */
-function dump($obj, $descr = null) {
-    if ($descr !== null)
-        echo "<h3>$descr</h3>";
-    ob_start();
-    var_dump($obj);
-    $dump = ob_get_clean();
-    ?><pre><?php echo htmlspecialchars($dump); ?></pre><?php
-    return true;
-}
-
-
-
-
-if (defined('HYPERLIGHT_SHORTCUT')) {
-    function hy() {
-        $args = func_get_args();
-        call_user_func_array('hyperlight', $args);
-    }
-    function hyf() {
-        $args = func_get_args();
-        call_user_func_array('hyperlight_file', $args);
-    }
-}
-
