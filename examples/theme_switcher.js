@@ -7,14 +7,14 @@ $(document).ready(function() {
             var cssPath = '../colors/' + this.id.replace('theme-', '') + '.css';
             var cssAlreadyLoaded = false;
             $('pre.source-code').each(function (j, code) {
-                $(code).fadeOut('normal', function() {
+                $(code).fadeOut('fast', function() {
                     if (!cssAlreadyLoaded) {
                         cssAlreadyLoaded = true;
                         $('link#theme').attr({href: cssPath});
                     }
                 });
             });
-            $('pre.source-code').each(function (j, code) { $(code).fadeIn('normal'); });
+            $('pre.source-code').each(function (j, code) { $(code).fadeIn('fast'); });
             $(this).addClass('active');
             return false;
         });

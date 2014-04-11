@@ -57,5 +57,3 @@ class XmlLanguage extends HyperLanguage
         ));
     }
 }
-
-?>

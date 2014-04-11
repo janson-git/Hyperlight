@@ -262,6 +262,8 @@ class HyperLight {
      *          Attributes must be given as a hash of key value pairs.
      */
     public function highlight($code, $lang, $tag = 'pre', array $attributes = array()) {
+        $this->reset();
+        
         if ($code == '')
             die("`hyperlight` needs a code to work on!");
         if ($lang == '')
@@ -303,6 +305,8 @@ class HyperLight {
      * @see hyperlight()
      */
     public function highlightFile($filename, $lang = null, $tag = 'pre', array $attributes = array()) {
+        $this->reset();
+        
         if ($lang == '') {
             // Try to guess it from file extension.
             $pos = strrpos($filename, '.');

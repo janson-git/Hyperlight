@@ -66,7 +66,7 @@ abstract class HyperLanguage {
      */
     public static function nameFromExt($ext) {
         if (self::$_filetypes === null) {
-            $ft_content = file('languages/filetypes', 1);
+            $ft_content = file('Languages/filetypes', 1);
 
             foreach ($ft_content as $line) {
                 list ($name, $extensions) = explode(':', trim($line));

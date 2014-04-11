@@ -8,20 +8,20 @@ body {
 }
 
 #head {
-    background: url(graphics/head-backback.png) repeat-x;
+    background: url(../public/graphics/head-backback.png) repeat-x;
     color:#A67B5B;
     height:215px;
 }
 
 #head .text {
-    background: transparent url(graphics/head-background.png) no-repeat 50% 0%;
+    background: transparent url(../public/graphics/head-background.png) no-repeat 50% 0%;
     height: 100%;
     width: 100%;
 }
 
 #head .text h1 {
     margin: 0 auto;
-    width: 600px;
+    width: 720px;
     font: italic normal normal 36pt/215px Palatino, Times New Roman, serif;
 }
 
@@ -30,7 +30,7 @@ body {
 }
 
 #swoosh {
-    background: #BC7B57 url(graphics/body-background.png) no-repeat 50% 0%;
+    background: #BC7B57 url(../public/graphics/body-background.png) no-repeat 50% 0%;
     width: 100%;
     height: 75px;
     position: absolute;
@@ -47,7 +47,7 @@ body {
 }
 
 div.text {
-    width: 600px;
+    width: 720px;
     margin: 0 auto;
 }
 
@@ -57,7 +57,7 @@ p {
 
 .source-code {
     border: 1px solid black;
-    font-family: Consolas, Courier New;
+    font-family: Consolas, Courier New, monospace;
     font-size: 0.9em;
 }
 

@@ -35,13 +35,13 @@
                     <li>
                         <a href="">Reference</a>
                         <ul>
-                            <li><a href="">Class <code>Hyperlight</code></a></li>
-                            <li><a href="">Function <code>hyperlight</code></a></li>
-                            <li><a href="">Function <code>hyperlight_file</code></a></li>
-                            <li><a href="">Class <code>HyperLanguage</code></a></li>
-                            <li><a href="">Class <code>HyperlightCompiledLanguage</code></a></li>
-                            <li><a href="">Class <code>Rule</code></a></li>
-                            <li><a href="">Class <code>NoMatchingRuleException</a></li>
+                            <li><a href="#">Class <code>Hyperlight</code></a></li>
+                            <li><a href="#">Function <code>hyperlight</code></a></li>
+                            <li><a href="#">Function <code>hyperlight_file</code></a></li>
+                            <li><a href="#">Class <code>HyperLanguage</code></a></li>
+                            <li><a href="#">Class <code>HyperlightCompiledLanguage</code></a></li>
+                            <li><a href="#">Class <code>Rule</code></a></li>
+                            <li><a href="#">Class <code>NoMatchingRuleException</a></li>
                         </ul>
                     </li>
                     <li><a href="faq/">Frequently Asked Questions</a></li>
