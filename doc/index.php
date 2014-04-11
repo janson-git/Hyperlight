@@ -7,8 +7,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>‹? Hyperlight ?› Documentation</title>
-        <link rel="stylesheet" type="text/css" href="../style.css"/>
-        <link rel="stylesheet" type="text/css" href="../colors/zenburn.css" id="theme"/>
+        <link rel="stylesheet" type="text/css" href="../public/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../public/colors/zenburn.css" id="theme"/>
     </head>
 
     <body>
@@ -60,5 +60,3 @@
         </div>
     </body>
 </html>
-<!-- vim:ft=html
--->
