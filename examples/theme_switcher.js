@@ -4,7 +4,7 @@ $(document).ready(function() {
             if ($(this).hasClass('active'))
                 return false;
             $('#switch-buttons a').each(function (i, btt) { $(btt).removeClass('active'); });
-            var cssPath = '../colors/' + this.id.replace('theme-', '') + '.css';
+            var cssPath = '../public/colors/' + this.id.replace('theme-', '') + '.css';
             var cssAlreadyLoaded = false;
             $('pre.source-code').each(function (j, code) {
                 $(code).fadeOut('fast', function() {
