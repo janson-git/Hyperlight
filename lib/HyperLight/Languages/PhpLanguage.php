@@ -9,7 +9,13 @@
 // - Heredoc et al.
 // - More complex nested variable names.
 
-class PhpLanguage extends HyperLanguage {
+namespace HyperLight\Languages;
+
+use \HyperLight\HyperLanguage;
+use HyperLight\Rule;
+
+class PhpLanguage extends HyperLanguage
+{
     public function __construct() {
         $this->setInfo(array(
             parent::NAME => 'PHP',
@@ -69,5 +75,3 @@ class PhpLanguage extends HyperLanguage {
         ));
     }
 }
-
-?>

@@ -6,6 +6,11 @@
 # Add type “keywords”?
 # <http://docs.python.org/dev/3.0/reference/lexical_analysis.html>
 
+namespace HyperLight\Languages;
+
+use HyperLight\HyperLanguage;
+use HyperLight\Rule;
+
 class PythonLanguage extends HyperLanguage {
     public function __construct() {
         $this->setInfo(array(

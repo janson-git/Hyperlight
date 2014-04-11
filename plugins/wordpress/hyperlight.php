@@ -1,5 +1,5 @@
 <?php
-// Plugin Name: Hyperlight for WordPress
+// Plugin Name: HyperLight for WordPress
 // Plugin URI: http://code.google.com/p/hyperlight
 // Description: Static, CSS-based syntax highlighter for a variety of languages.
 // Author: Konrad Rudolph

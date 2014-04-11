@@ -7,8 +7,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <title>‹? Hyperlight ?› Documentation</title>
-        <link rel="stylesheet" type="text/css" href="../style.css"/>
-        <link rel="stylesheet" type="text/css" href="../colors/zenburn.css" id="theme"/>
+        <link rel="stylesheet" type="text/css" href="../public/style.css"/>
+        <link rel="stylesheet" type="text/css" href="../public/colors/zenburn.css" id="theme"/>
     </head>
 
     <body>
@@ -35,13 +35,13 @@
                     <li>
                         <a href="">Reference</a>
                         <ul>
-                            <li><a href="">Class <code>Hyperlight</code></a></li>
-                            <li><a href="">Function <code>hyperlight</code></a></li>
-                            <li><a href="">Function <code>hyperlight_file</code></a></li>
-                            <li><a href="">Class <code>HyperLanguage</code></a></li>
-                            <li><a href="">Class <code>HyperlightCompiledLanguage</code></a></li>
-                            <li><a href="">Class <code>Rule</code></a></li>
-                            <li><a href="">Class <code>NoMatchingRuleException</a></li>
+                            <li><a href="#">Class <code>Hyperlight</code></a></li>
+                            <li><a href="#">Function <code>hyperlight</code></a></li>
+                            <li><a href="#">Function <code>hyperlight_file</code></a></li>
+                            <li><a href="#">Class <code>HyperLanguage</code></a></li>
+                            <li><a href="#">Class <code>HyperlightCompiledLanguage</code></a></li>
+                            <li><a href="#">Class <code>Rule</code></a></li>
+                            <li><a href="#">Class <code>NoMatchingRuleException</a></li>
                         </ul>
                     </li>
                     <li><a href="faq/">Frequently Asked Questions</a></li>
@@ -60,5 +60,3 @@
         </div>
     </body>
 </html>
-<!-- vim:ft=html
--->

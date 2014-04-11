@@ -1,6 +1,8 @@
 <?php
 
-require_once('php.php');
+//require_once('php.php');
+
+namespace HyperLight\Languages;
 
 class IphpLanguage extends PhpLanguage {
     public function __construct() {
@@ -10,5 +12,3 @@ class IphpLanguage extends PhpLanguage {
         $this->addStates(array('init' => $this->getState('php')));
     }
 }
-
-?>
