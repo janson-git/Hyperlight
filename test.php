@@ -76,7 +76,7 @@ if (__FILE__ === realpath($_SERVER['SCRIPT_FILENAME'])):
     else
         $colorscheme = $default_colorscheme;
 
-    write_prolog('Hyperlight tests', $colorscheme, isset($_GET['debug']));
+    write_prolog('HyperLight tests', $colorscheme, isset($_GET['debug']));
 ?>
     <h2>A few small tests:</h2>
 

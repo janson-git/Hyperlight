@@ -166,5 +166,3 @@ function preg_strip($expression) {
 
     return array($sub_expr, $modifiers);
 }
-
-?>

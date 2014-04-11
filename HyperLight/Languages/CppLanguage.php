@@ -5,6 +5,11 @@
 // - Add 'TO DO', 'FIX ME', … tags
 // - (Add doc comments?)
 
+namespace HyperLight\Languages;
+
+use HyperLight\HyperLanguage;
+use HyperLight\Rule;
+
 class CppLanguage extends HyperLanguage {
     public function __construct() {
         $this->setInfo(array(

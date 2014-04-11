@@ -1,6 +1,12 @@
 <?php
 
-class XmlLanguage extends HyperLanguage {
+namespace HyperLight\Languages;
+
+use HyperLight\HyperLanguage;
+use HyperLight\Rule;
+
+class XmlLanguage extends HyperLanguage 
+{
     public function __construct() {
         $this->setInfo(array(
             parent::NAME => 'XML',
