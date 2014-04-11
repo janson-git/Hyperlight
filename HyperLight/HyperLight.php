@@ -12,7 +12,17 @@ class HyperLight {
     private $_postProcessors = array();
     private $_code;
 
-    public function __construct($lang) {
+    public function __construct($lang = 'iphp')
+    {
+        $this->setLanguage($lang);
+        foreach ($this->_lang->postProcessors() as $ppkey => $ppvalue)
+            $this->_postProcessors[$ppkey] = new HyperLight($ppvalue);
+
+        $this->reset();
+    }
+
+    protected function setLanguage($lang)
+    {
         if (is_string($lang))
             $this->_lang = HyperLanguage::compileFromName(strtolower($lang));
         else if ($lang instanceof HyperLightCompiledLanguage)
@@ -24,13 +34,8 @@ class HyperLight {
                 'Invalid argument type for $lang to HyperLight::__construct',
                 E_USER_ERROR
             );
-
-        foreach ($this->_lang->postProcessors() as $ppkey => $ppvalue)
-            $this->_postProcessors[$ppkey] = new HyperLight($ppvalue);
-
-        $this->reset();
     }
-
+    
     public function language() {
         return $this->_lang;
     }
@@ -43,11 +48,11 @@ class HyperLight {
     public function render($code) {
         // Normalize line breaks.
         $this->_code = preg_replace('/\r\n?/', "\n", $code);
-        $fm = hyperlight_calculate_fold_marks($this->_code, $this->language()->id());
-        return hyperlight_apply_fold_marks($this->renderCode(), $fm);
+        $fm = HyperLightHelpers::calculateFoldMarks($this->_code, $this->language()->id());
+        return HyperLightHelpers::applyFoldMarks($this->renderCode(), $fm);
     }
 
-    public function renderAndPrint($code) {
+    protected function renderAndPrint($code) {
         echo $this->render($code);
     }
 
@@ -234,20 +239,79 @@ class HyperLight {
         $this->_result .= $text;
     }
 
-//      // DAMN! What did I need them for? Something to do with encoding …
-//      // but why not use the `$charset` argument on `htmlspecialchars`?
-//    private static function htmlentitiesCallback($match) {
-//        switch ($match[0]) {
-//            case '<': return '&lt;';
-//            case '>': return '&gt;';
-//            case '&': return '&amp;';
-//        }
-//    }
-//
-//    private static function htmlentities($text) {
-//        return htmlspecialchars($text, ENT_NOQUOTES);
-//        return preg_replace_callback(
-//            '/[<>&]/', array('HyperLight', 'htmlentitiesCallback'), $text
-//        );
-//    }
+
+    /**
+     * <var>echo</var>s a highlighted code.
+     *
+     * For example, the following
+     * <code>
+     * $hl = new HyperLight();
+     * $hl->highlight('<?php echo \'Hello, world\'; ?>', 'php');
+     * </code>
+     * results in:
+     * <code>
+     * <pre class="source-code php">...</pre>
+     * </code>
+     *
+     * @param string $code The code.
+     * @param string $lang The language of the code.
+     * @param string $tag The surrounding tag to use. Optional.
+     * @param array $attributes Attributes to decorate {@link $tag} with.
+     *          If no tag is given, this argument can be passed in its place. This
+     *          behaviour will be assumed if the third argument is an array.
+     *          Attributes must be given as a hash of key value pairs.
+     */
+    public function highlight($code, $lang, $tag = 'pre', array $attributes = array()) {
+        if ($code == '')
+            die("`hyperlight` needs a code to work on!");
+        if ($lang == '')
+            die("`hyperlight` needs to know the code's language!");
+        if (is_array($tag) and !empty($attributes))
+            die("Can't pass array arguments for \$tag *and* \$attributes to `hyperlight`!");
+        if ($tag == '')
+            $tag = 'pre';
+        if (is_array($tag)) {
+            $attributes = $tag;
+            $tag = 'pre';
+        }
+        $lang = htmlspecialchars(strtolower($lang));
+        $class = "source-code $lang";
+
+        $attr = array();
+        foreach ($attributes as $key => $value) {
+            if ($key == 'class')
+                $class .= ' ' . htmlspecialchars($value);
+            else
+                $attr[] = htmlspecialchars($key) . '="' .
+                    htmlspecialchars($value) . '"';
+        }
+
+        $attr = empty($attr) ? '' : ' ' . implode(' ', $attr);
+
+        $this->setLanguage($lang);
+        echo "<$tag class=\"$class\"$attr>";
+        $this->renderAndPrint(trim($code) . "\n"); // add line feed to end of code
+        echo "</$tag>";
+    }
+
+    /**
+     * Is the same as:
+     * <code>
+     * $hl = new HyperLight();
+     * $hl->highlight(file_get_contents($filename), $lang, $tag, $attributes);
+     * </code>
+     * @see hyperlight()
+     */
+    public function highlightFile($filename, $lang = null, $tag = 'pre', array $attributes = array()) {
+        if ($lang == '') {
+            // Try to guess it from file extension.
+            $pos = strrpos($filename, '.');
+            if ($pos !== false) {
+                $ext = substr($filename, $pos + 1);
+                $lang = \HyperLight\HyperLanguage::nameFromExt($ext);
+            }
+        }
+        $this->highlight(file_get_contents($filename), $lang, $tag, $attributes);
+    }
+
 } // class HyperLight

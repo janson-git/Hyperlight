@@ -28,7 +28,9 @@
                     <li><a href="" id="symfony2">Symfony2</a></li>
                 </ul>
 
-                <?php hyperlight(
+                <?php 
+                $hl = new \HyperLight\HyperLight();
+                $hl->highlight(
 'function preg_strip($expression) {
     $regex = \'/^(.)(.*)\\\\1([imsxeADSUXJu]*)$/s\';
     if (preg_match($regex, $expression, $matches) !== 1)
@@ -47,10 +49,10 @@
 
     return array($sub_expr, $modifiers);
 }
-', 'iphp'); 
+', 'iphp');
 
-
-hyperlight('CREATE TABLE stat."group"
+                
+$hl->highlight('CREATE TABLE stat."group"
 (
   id bigserial NOT NULL,
   flag_valid boolean NOT NULL DEFAULT true,
@@ -65,7 +67,7 @@ hyperlight('CREATE TABLE stat."group"
 )', 'sql');
 
 
-hyperlight('
+$hl->highlight('
 #include<iostream.h>
 #include<conio.h>
 void main()                         //Start of main
