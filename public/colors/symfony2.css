@@ -26,7 +26,7 @@
 .source-code .tag {color: #FDFFF8; }
 
 .source-code .tag .attribute { font-style: italic; }
-.source-code.xml .preprocessor .keyword { color #996; }
+.source-code.xml .preprocessor .keyword { color: #996; }
 .source-code.xml .preprocessor .keyword { color: #996; }
 .source-code.xml .meta, .source-code.xml .meta .keyword { color: #399; }
 
