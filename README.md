@@ -12,6 +12,9 @@ require_once '../hyperlight.php';
 $hyperlight = new \HyperLight\HyperLight();
 
 // use as: $hyperlight->highlight($code, $lang);
+// $lang - can by 'php', 'iphp', 'sql', 'cpp', 'vb', 'css', 'python', 'xml'
+// 'iphp' - use for code blocks of pure PHP (without start tag '<?php')
+// 'php' - use for mix of PHP code and HTML (or PHP with start tag '<?php')
 
 $hyperlight->highlight(
 'function preg_strip($expression) {
@@ -34,7 +37,5 @@ return array($sub_expr, $modifiers);
 }
 ', 'iphp');
 
-// 'iphp' - use for code block of pure PHP (without start tag '<?php')
-// 'php' - use for mix of PHP code and HTML (or PHP with start tag '<?php')
 
 ```
