@@ -1,9 +1,9 @@
 .source-code {
     background: #302F29;
     color: white;
-    font-family: Monaco,DejaVu Sans Mono,Consolas,Courier New;
-    line-height: 1.4em;
-    overflow: auto;
+	font-family: Monaco,DejaVu Sans Mono,Consolas,Courier New;
+	line-height: 1.4em;
+	overflow: auto;
 }
 
 .source-code .keyword { color: #ccc; font-weight: bold; }

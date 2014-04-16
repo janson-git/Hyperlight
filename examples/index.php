@@ -27,6 +27,7 @@
                     <li><a href="" id="theme-vibrant-ink">Vibrant Ink</a></li>
                     <li><a href="" id="symfony2">Symfony2</a></li>
                     <li><a href="" id="codeception">Codeception</a></li>
+                    <li><a href="" id="github-light">GitHub light</a></li>
                 </ul>
 
                 <?php 
