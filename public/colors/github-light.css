@@ -1,0 +1,48 @@
+.source-code {
+    font-family: Consolas,"Liberation Mono",Courier,monospace;
+    font-size: 12px;
+    font-weight: 400;
+    font-style: normal;
+    font-size-adjust: none;
+    color: #333333;
+    background-color: #fff;
+    line-height: 18px;
+	overflow: auto;
+}
+
+.source-code .keyword { color: #333; font-weight: bold; }
+.source-code .keyword.literal { color: #008080; }
+.source-code .keyword.type { color: #008080; }
+.source-code .keyword.builtin { color: #0086b3; font-weight: normal;}
+.source-code .preprocessor { color: #663; }
+.source-code .comment { color: #998; }
+.source-code .comment .doc { color: #998; font-weight: bold; }
+.source-code .identifier { color: #900; }
+.source-code .string, .source-code .char { color: #900; }
+.source-code .escaped { color: #aaa; }
+.source-code .number, .source-code .tag { color: #40a070; }
+.source-code .regex, .source-code .attribute { color: #31B9F4; }
+.source-code .operator { color: #888; }
+.source-code .keyword.operator { color: #FF8400; }
+.source-code .whitespace { background: #333; }
+.source-code .error { border-bottom: 1px solid red; }
+
+.source-code .tag {color: #008080; }
+.source-code .tag .identifier {color: #008080; }
+
+.source-code .tag .attribute { font-style: italic; }
+.source-code.xml .preprocessor .keyword { color: #996; }
+.source-code.xml .preprocessor .keyword { color: #996; }
+.source-code.xml .meta, .source-code.xml .meta .keyword { color: #399; }
+
+.source-code.cpp .preprocessor .identifier { color: #996; }
+
+.source-code::-moz-selection, .source-code span::-moz-selection {
+    background: yellow;
+    color: black;
+}
+
+.source-code::selection, .source-code span::selection {
+    background: yellow;
+    color: black;
+}
