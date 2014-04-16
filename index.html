@@ -1,91 +1,57 @@
-<!DOCTYPE html 
-     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>‹? Hyperlight ?› Examples</title>
-        <link rel="stylesheet" type="text/css" href="public/style.css"/>
-        <script type="text/javascript" src="public/jquery-1.2.6.min.js"></script>
-        <script type="text/javascript" src="examples/theme_switcher.js"></script>
-        <link rel="stylesheet" type="text/css" href="public/colors/symfony2.css" id="theme"/>
-    </head>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>‹? Hyperlight ?› Code Highlighting for PHP</title>
+    <link rel="stylesheet" type="text/css" href="public/style.css"/>
+    <link rel="stylesheet" type="text/css" href="public/colors/symfony2.css" id="theme"/>
+</head>
 
-    <body>
-        <div id="head">
-            <div class="text">
-                <h1>Examples</h1>
-            </div>
-        </div>
-        <div id="content">
-            <div id="swoosh"></div>
-            <div class="text">
-                <ul id="switch-buttons">
-                    <li><a href="" id="theme-zenburn">Zenburn</a></li>
-                    <li><a href="" id="theme-vibrant-ink">Vibrant Ink</a></li>
-                    <li><a href="" class="active" id="symfony2">Symfony2</a></li>
-                </ul>
-
-                <pre class="source-code iphp"><span class="keyword">function</span> <span class="identifier">preg_strip</span>(<span class="tag">$<span class="identifier">expression</span></span>) {
-    <span class="tag">$<span class="identifier">regex</span></span> = <span class="string">'/^(.)(.*)\\1([imsxeADSUXJu]*)$/s'</span>;
-    <span class="keyword">if</span> (<span class="keyword builtin">preg_match</span>(<span class="tag">$<span class="identifier">regex</span></span>, <span class="tag">$<span class="identifier">expression</span></span>, <span class="tag">$<span class="identifier">matches</span></span>) !== <span class="number">1</span>)
-        <span class="keyword">return</span> <span class="keyword literal">false</span>;
-
-    <span class="tag">$<span class="identifier">delim</span></span> = <span class="tag">$<span class="identifier">matches</span></span>[<span class="number">1</span>];
-    <span class="tag">$<span class="identifier">sub_expr</span></span> = <span class="tag">$<span class="identifier">matches</span></span>[<span class="number">2</span>];
-    <span class="keyword">if</span> (<span class="tag">$<span class="identifier">delim</span></span> !== <span class="string">'/'</span>) {
-        <span class="comment">// Replace occurrences by the escaped delimiter by its unescaped
-</span>        <span class="comment">// version and escape new delimiter.
-</span>        <span class="tag">$<span class="identifier">sub_expr</span></span> = <span class="keyword builtin">str_replace</span>(<span class="string">"\\$delim"</span>, <span class="tag">$<span class="identifier">delim</span></span>, <span class="tag">$<span class="identifier">sub_expr</span></span>);
-        <span class="tag">$<span class="identifier">sub_expr</span></span> = <span class="keyword builtin">str_replace</span>(<span class="string">'/'</span>, <span class="string">'\\/'</span>, <span class="tag">$<span class="identifier">sub_expr</span></span>);
-    }
-    <span class="tag">$<span class="identifier">modifiers</span></span> = <span class="tag">$<span class="identifier">matches</span></span>[<span class="number">3</span>] === <span class="string">''</span> ?
-                 <span class="keyword">array</span>() : <span class="keyword builtin">str_split</span>(<span class="keyword builtin">trim</span>(<span class="tag">$<span class="identifier">matches</span></span>[<span class="number">3</span>]));
-
-    <span class="keyword">return</span> <span class="keyword">array</span>(<span class="tag">$<span class="identifier">sub_expr</span></span>, <span class="tag">$<span class="identifier">modifiers</span></span>);
-}
-</pre><pre class="source-code sql"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> <span class="identifier">stat</span>.<span class="identifier">"group</span>"
-(
-  <span class="identifier">id</span> <span class="keyword type">bigserial</span> <span class="keyword ">NOT</span> <span class="keyword type">NULL</span>,
-  <span class="identifier">flag_valid</span> <span class="keyword type">boolean</span> <span class="keyword ">NOT</span> <span class="keyword type">NULL</span> <span class="keyword">DEFAULT</span> <span class="keyword literal">true</span>,
-  <span class="identifier">group_id</span> <span class="keyword type">bigint</span> <span class="keyword ">NOT</span> <span class="keyword type">NULL</span>,
-  <span class="identifier">"date</span>" <span class="keyword type">date</span> <span class="keyword ">NOT</span> <span class="keyword type">NULL</span>,
-  <span class="identifier">member_list</span> <span class="keyword type">bigint</span>[] <span class="keyword ">NOT</span> <span class="keyword type">NULL</span>, <span class="comment">-- comment here</span>
-  <span class="keyword">CONSTRAINT</span> <span class="identifier">group_pkey</span> <span class="keyword">PRIMARY KEY</span> (<span class="identifier">id</span>)
-  <span class="keyword">USING</span> <span class="keyword">INDEX</span> <span class="keyword">TABLESPACE</span> <span class="identifier">pg_default</span>,
-  <span class="keyword">CONSTRAINT</span> <span class="identifier">group_group_id_date_key</span> <span class="keyword">UNIQUE</span> (<span class="identifier">group_id</span>, <span class="keyword type">date</span>)
-  <span class="keyword">USING</span> <span class="keyword">INDEX</span> <span class="keyword">TABLESPACE</span> <span class="identifier">pg_default</span>
-  <span class="comment doc">/* some comment here */</span>
-)
-</pre><pre class="source-code cpp"><span class="preprocessor">#include<span class="tag">&lt;iostream.h&gt;</span>
-</span><span class="preprocessor">#include<span class="tag">&lt;conio.h&gt;</span>
-</span><span class="keyword type">void</span> <span class="identifier">main</span>()                         <span class="comment">//Start of main
-</span>{
-    <span class="identifier">clrscr</span>();
-    <span class="keyword type">int</span> <span class="identifier">i</span>=<span class="number">1</span>, <span class="identifier">u</span>=<span class="number">1</span>, <span class="identifier">sum</span>=<span class="number">0</span>;
-    <span class="keyword">while</span>(<span class="identifier">i</span>&lt;=<span class="number">500</span>) {                 <span class="comment">// start of first loop.
-</span>        <span class="keyword">while</span>(<span class="identifier">u</span>&lt;=<span class="number">500</span>) {             <span class="comment">//start of second loop.
-</span>            <span class="keyword">if</span>(<span class="identifier">u</span>&lt;<span class="identifier">i</span>) {
-                <span class="keyword">if</span>(<span class="identifier">i</span>%<span class="identifier">u</span>==<span class="number">0</span> ) {
-                    <span class="identifier">sum</span>=<span class="identifier">sum</span>+<span class="identifier">u</span>;
-                }
-            }                       <span class="comment">//End of if statement
-</span>            <span class="identifier">u</span>++;
-        }                           <span class="comment">//End of second loop
-</span>    
-        <span class="keyword">if</span>(<span class="identifier">sum</span>==<span class="identifier">i</span>) {
-            <span class="identifier">cout</span>&lt;&lt;<span class="identifier">i</span>&lt;&lt;<span class="string">" is a perfect number."</span>&lt;&lt;<span class="string">"\n"</span>;
-        }
-    
-        <span class="identifier">i</span>++;
-        <span class="identifier">u</span>=<span class="number">1</span>;  <span class="identifier">sum</span>=<span class="number">0</span>;
-    }                               <span class="comment">//End of First loop
-</span>    <span class="identifier">getch</span>();
-}                                   <span class="comment">//End of main
-</span></pre>            </div>
-        </div>
-    </body>
+<body>
+<div id="head">
+    <div class="text">
+        <h1>Code Highlighting for PHP</h1>
+    </div>
+</div>
+<div id="content">
+    <div id="swoosh"></div>
+    <div class="text">
+        <div id="nav"><a href="/examples/index.html">Look for example highlights</a></div>
+        <h2>Why use Hyperlight?</h2>
+        <ul>
+            <li>
+                <p><strong>Easy to use.</strong> There’s no configuration. The following code will highlight your source code. Nothing more needs to be said or done.</p>
+                    <pre class="source-code iphp"><span class="comment">// Create a new hyperlight instance and print the highlighted code.
+</span><span class="tag">$<span class="identifier">highlighter</span></span> = <span class="keyword operator">new</span> <span class="identifier">HyperLight</span>();
+<span class="tag">$<span class="identifier">highlighter</span></span>-&gt;<span class="identifier">highlight</span>(<span class="tag">$<span class="identifier">code</span></span>, <span class="string">'iphp'</span>);
+</pre>                    <p>This code creates a <code>&lt;pre&gt;</code> container around the code. This can be controlled with a third argument to the function.</p>
+            </li>
+            <li>
+                <p><strong>Easy to extend.</strong> The syntax definitions are written in PHP but only very basic language grasp is needed. Syntax definitions are concise and for most tasks, existing templates can be used and it’s enough to customize a basic set of features.</p>
+                <p>Supported languages: C++, C#, Css, PHP, Python, SQL, VB, XML</p>
+            </li>
+            <li>
+                <p><strong>Powerful.</strong> The syntax definitions use regular expressions but they support stateful parsing through a very simple mechanism. This makes implementing context free grammars effortless.</p>
+            </li>
+            <li>
+                <p><strong>Full <acronym>CSS</acronym> support.</strong> One single <acronym>CSS</acronym> file can be used for all languages to give a consistent look &amp; feel. Elements may be nested for refinements (e.g. highlighting “TODO” items in comments):</p>
+                    <pre class="source-code css"><span class="keyword builtin">.comment</span> { <span class="attribute">color</span>: <span class="identifier">gray</span>; }
+<span class="keyword builtin">.comment</span> <span class="keyword builtin">.todo</span> { <span class="attribute">font-weight</span>: <span class="identifier">bold</span>; }
+</pre>                    <p>Further refinements are possible in order to differentiate similar elements. Consider the different classes of keywords:</p>
+                    <pre class="source-code css"><span class="keyword builtin">.keyword</span> { <span class="attribute">color</span>: <span class="string">#008</span>; }
+<span class="keyword builtin">.keyword</span><span class="keyword builtin">.type</span> { <span class="attribute">color</span>: <span class="string">#088</span>; }
+<span class="keyword builtin">.keyword</span><span class="keyword builtin">.operator</span> { <span class="attribute">font-weight</span>: <span class="identifier">bold</span>; }
+</pre>                    </li>
+            <li>
+                <p><strong>Colour schemes!</strong> – This is basically the same as “full <acronym>CSS</acronym> support” but it sounds <em>waaay</em> cooler. Since <acronym>CSS</acronym> support is naturally included in Hyperlight and syntax files can define appropriate mappings for their lexemes, usage and creation of professional colour schemes is effortless.</p>
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
 </html>
 <!-- vim:ft=html
 -->

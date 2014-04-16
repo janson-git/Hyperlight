@@ -94,3 +94,8 @@ pre {
 #switch-buttons li a.active {
     background: black;
 }
+
+#nav {
+    font-size: 14px;
+    font-weight: bold;
+}
