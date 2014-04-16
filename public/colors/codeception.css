@@ -13,7 +13,7 @@
 .source-code .preprocessor { color: #996; }
 .source-code .comment { color: #999; }
 .source-code .comment .doc { color: #999; font-weight: bold; }
-.source-code .identifier { color: white; }
+.source-code .identifier { color: #bbf; }
 .source-code .string, .source-code .char { color: #87d139; }
 .source-code .escaped { color: #AAA; }
 .source-code .number, .source-code .tag { color: #40a070; }
