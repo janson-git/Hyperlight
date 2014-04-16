@@ -4,11 +4,14 @@ Hyperlight
 Fork of Hyperlight. Add SQL language. Add new color schemes.
 
 
-*Usage*
+**Usage**
 
+```php
 
-<?php require_once '../hyperlight.php'; ?>
+require_once '../hyperlight.php';
 $hyperlight = new \HyperLight\HyperLight();
+
+// use as: $hyperlight->highlight($code, $lang);
 
 $hyperlight->highlight(
 'function preg_strip($expression) {
@@ -30,3 +33,8 @@ array() : str_split(trim($matches[3]));
 return array($sub_expr, $modifiers);
 }
 ', 'iphp');
+
+// 'iphp' - use for code block of pure PHP (without start tag '<?php')
+// 'php' - use for mix of PHP code and HTML (or PHP with start tag '<?php')
+
+```
